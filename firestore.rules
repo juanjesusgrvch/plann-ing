@@ -1,0 +1,15 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cada usuario solo puede acceder a su propia carpeta de tareas
+    match /users/{userId}/tasks/{taskId} {
+      allow read, create, update, delete: if request.auth != null && 
+                                             request.auth.uid == userId;
+    }
+    
+    // Denegar acceso a todo lo demás
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
