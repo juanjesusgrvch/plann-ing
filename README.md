@@ -1,160 +1,89 @@
-# Strategic Planner 📋
+# Plann-ing — Dashboard y Planner de Tareas
 
-Una aplicación moderna de gestión de tareas con inteligencia artificial integrada, construida con React, TypeScript y Tailwind CSS.
+Plann-ing es una aplicación moderna para gestionar tareas y tiempo, con sincronización en la nube y capacidades de IA (Gemini) para análisis y desgloses inteligentes.
 
-## 🚀 Características
+## 🚀 Características principales
 
-- **📅 Calendario Interactivo**: Visualiza y gestiona tareas en un calendario mensual
-- **🎤 Entrada de Voz**: Dicta tareas directamente usando el reconocimiento de voz (soporte en Chrome/Edge)
-- **🤖 IA Integrada (Gemini)**:
-  - Análisis automático de productividad
-  - Desglose inteligente de tareas
-  - Extracción de tareas desde texto de voz
-- **📊 Dashboard Estratégico**: Métricas y reportes en tiempo real
-- **📁 Gestión de Backlog**: Tareas sin fecha asignada
-- **📝 Lista Lineal**: Vista tabular de todas las tareas
-- **⚡ Drag & Drop**: Arrastra tareas entre fechas
-- **📄 Exportación a PDF**: Genera reportes del dashboard
-- **🎯 Prioridades**: Clasifica tareas por Alta, Media o Baja
-- **✅ Tracking de Completación**: Marca tareas como completadas
+- 📅 Calendario interactivo con drag & drop
+- 🎤 Entrada por voz para crear tareas rápidamente
+- 🤖 Integración con Gemini para insights y generación de subtareas
+- 📊 Dashboard con métricas y exportación a PDF
+- ✅ Sincronización en tiempo real entre dispositivos vía Firebase
 
-## 📦 Instalación
-
-### Requisitos
+## 📦 Requisitos
 
 - Node.js 18+
 - npm o yarn
 
-### Pasos de Configuración
+## Instalación rápida
 
-1. **Clona o descarga el proyecto**
+1. Clona el repositorio y entra en la carpeta:
 
 ```bash
-cd PLANNER
+git clone https://github.com/juanjesusgrvch/plann-ing.git
+cd plann-ing
 ```
 
-2. **Instala las dependencias**
+2. Instala dependencias:
 
 ```bash
 npm install
 ```
 
-3. **Configura la API de Gemini**
-   - Copia `.env.example` a `.env.local`:
+3. Configura las variables de entorno:
 
-   ```bash
-   cp .env.example .env.local
-   ```
+```bash
+cp .env.example .env.local
+# Edita .env.local y añade VITE_GEMINI_API_KEY y opcionalmente VITE_GEMINI_MODEL
+```
 
-   - Obtén tu clave de API en [Google AI Studio](https://makersuite.google.com/app/apikey)
-   - Pega tu clave en `VITE_GEMINI_API_KEY` en el archivo `.env.local`
-
-4. **Inicia el servidor de desarrollo**
+4. Ejecuta en modo desarrollo:
 
 ```bash
 npm run dev
 ```
 
-La aplicación estará disponible en `http://localhost:5173`
+La app estará disponible en `http://localhost:5173`.
 
-## 🏗️ Estructura del Proyecto
+## Configurar el modelo Gemini
+
+En `.env.local` puedes definir el modelo con `VITE_GEMINI_MODEL`. Por defecto la app usa `gemini-2.5-flash-latest`.
+
+Ejemplo:
 
 ```
-PLANNER/
-├── src/
-│   ├── App.tsx           # Componente principal
-│   ├── main.tsx          # Punto de entrada
-│   └── index.css         # Estilos globales
-├── index.html            # HTML base
-├── package.json          # Dependencias
-├── tsconfig.json         # Configuración TypeScript
-├── vite.config.ts        # Configuración Vite
-├── tailwind.config.js    # Configuración Tailwind
-├── postcss.config.js     # Configuración PostCSS
-└── .env.example          # Variables de entorno (ejemplo)
+VITE_GEMINI_API_KEY=tu_clave_aqui
+VITE_GEMINI_MODEL=gemini-2.5-flash-latest
 ```
 
-## 🛠️ Desarrollo
+## Estructura del proyecto
 
-### Comandos disponibles
+```
+plann-ing/
+├─ src/
+├─ public/
+├─ dist/
+├─ package.json
+└─ README.md
+```
+
+## Comandos útiles
 
 ```bash
-# Inicia servidor de desarrollo
+# Desarrollo
 npm run dev
 
-# Compila para producción
+# Build producción
 npm run build
 
-# Vista previa de producción
+# Vista previa
 npm run preview
-
-# Lint del código
-npm run lint
 ```
 
-## 🔑 Configuración de Gemini API
+## Contribuciones
 
-La aplicación requiere una clave de API de Google Gemini para:
-
-- Análisis de productividad
-- Desglose automático de tareas
-- Procesamiento de entrada de voz
-
-### Cómo obtener la clave:
-
-1. Ve a [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Haz clic en "Create API Key"
-3. Copia la clave
-4. Pégala en tu archivo `.env.local`
-
-## 🎨 Tecnologías Utilizadas
-
-- **React 18**: Biblioteca de UI
-- **TypeScript**: Tipado estático
-- **Tailwind CSS**: Estilos utilities
-- **Vite**: Build tool moderno
-- **Lucide React**: Iconos
-- **html2pdf.js**: Exportación a PDF
-
-## 📚 Uso
-
-### Crear una Tarea
-
-1. Haz clic en "Nueva Tarea" en el header
-2. Completa el título (obligatorio)
-3. Opcionalmente, agrega una descripción
-4. Usa "✨ Desglosar con IA" para generar subtareas automáticamente
-5. Asigna una fecha y prioridad
-6. Haz clic en "Crear Tarea"
-
-### Dictar Tareas con IA
-
-1. Haz clic en "Dictar Tareas" (micrófono)
-2. Habla claramente (en español)
-3. La IA extrae automáticamente las tareas mencionadas
-4. Las tareas se agregan al planificador
-
-### Ver Dashboard
-
-1. Navega a "Dashboard"
-2. Visualiza tus métricas de productividad
-3. Usa "Generar Análisis de Productividad" para obtener insights de IA
-4. Exporta el dashboard a PDF
-
-## ⚠️ Notas Importantes
-
-- La función de entrada de voz funciona mejor en **Chrome** o **Edge**
-- Se requiere una conexión a internet para usar las funciones de IA
-- La API de Gemini tiene límites de uso según tu plan
-
-## 📄 Licencia
-
-Este proyecto es de código abierto. Úsalo libremente bajo los términos de la licencia MIT.
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request.
+Las contribuciones son bienvenidas: abre issues o pull requests.
 
 ---
 
-Desarrollado con ❤️ usando React + Tailwind + IA Gemini
+Creado con ❤️ — Plann-ing
