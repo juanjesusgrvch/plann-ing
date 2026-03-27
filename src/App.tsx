@@ -97,9 +97,10 @@ const callGeminiAPI = async (prompt: string): Promise<string> => {
     );
   }
 
-  // Usar el modelo configurado en .env.local o por defecto gemini-2.5-flash-latest
+  // Usar el modelo configurado en .env.local o por defecto gemini-1.5-flash
   const model =
-    (import.meta.env as any).VITE_GEMINI_MODEL || "gemini-2.5-flash-latest";
+    (import.meta.env as any).VITE_GEMINI_MODEL || "gemini-2.5-flash";
+
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
 
   const payload = {
@@ -1567,17 +1568,21 @@ export default function App() {
       <header className="bg-white border-b border-gray-200 px-3 md:px-6 py-2 md:py-4 flex items-center justify-between sticky top-0 z-10 shadow-sm print:hidden">
         {/* Logo y Título */}
         <div className="flex items-center gap-2 md:gap-3 min-w-0">
-          <div className="bg-blue-600 p-1.5 md:p-2 rounded-lg flex-shrink-0">
-            <Calendar className="w-4 md:w-5 h-4 md:h-5 text-white" />
+          <div className="w-8 h-8 md:w-10 md:h-10">
+            <img
+              src="/favicon.webp"
+              alt="Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
           <div className="min-w-0">
             <h1 className="text-lg md:text-2xl font-black tracking-tight text-gray-900 leading-none italic">
               Plann-ing
             </h1>
             <p className="text-xs text-gray-500 mt-0.5 md:mt-1 font-semibold tracking-wide flex items-center gap-1 whitespace-nowrap overflow-hidden text-ellipsis">
-              <span className="hidden sm:inline">Dashboard y Planner</span>
+              <span className="hidden sm:inline">Dashboard & Planner</span>
               <span className="sm:hidden">Planner</span>
-              <Sparkles className="w-3 h-3 text-purple-500 flex-shrink-0" />
+              <Sparkles className="w-3 h-3 text-red-500 flex-shrink-0" />
             </p>
           </div>
         </div>
