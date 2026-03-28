@@ -86,4 +86,4 @@ Las contribuciones son bienvenidas: abre issues o pull requests.
 
 ---
 
-Creado con ❤️ — Plann-ing
+Creado por Juan Jesus con ❤️ — Plann-ing
